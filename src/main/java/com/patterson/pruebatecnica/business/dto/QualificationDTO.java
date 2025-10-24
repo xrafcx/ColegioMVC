@@ -14,7 +14,9 @@ public class QualificationDTO {
     private double percentage;
     private double note;
     private Integer idSubject;
+    private String nameSubject;
     private Integer idStudent;
+    private String nameStudent;
 
     public QualificationDTO(Qualification qualification){
         this.id = qualification.getId();
@@ -22,9 +24,11 @@ public class QualificationDTO {
         this.note = qualification.getNote();
         if(qualification.getSubject()!=null){
             this.idSubject = qualification.getSubject().getId();
+            this.nameSubject = qualification.getSubject().getName();
         }
         if(qualification.getStudent()!=null){
             this.idStudent = qualification.getStudent().getId();
+            this.nameStudent = qualification.getStudent().getFirstName()+" "+qualification.getStudent().getLastName();
         }
     }
 }
