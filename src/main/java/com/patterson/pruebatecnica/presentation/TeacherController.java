@@ -1,8 +1,10 @@
 package com.patterson.pruebatecnica.presentation;
 
+import com.patterson.pruebatecnica.business.dto.QualificationDTO;
 import com.patterson.pruebatecnica.business.dto.TeacherDTO;
 import com.patterson.pruebatecnica.business.exceptions.TeacherNotFoundException;
 import com.patterson.pruebatecnica.business.service.TeacherService;
+import com.patterson.pruebatecnica.data.entities.Qualification;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
@@ -32,6 +34,11 @@ public class TeacherController {
     @GetMapping("/findTeachers")
     public List<TeacherDTO> findTeachers() throws TeacherNotFoundException {
         return teacherService.findAll();
+    }
+
+    @GetMapping("/qualifications")
+    public List<QualificationDTO> findQualificationsByTeacherId(@RequestParam Integer idTeacher) {
+        return teacherService.findQualificationsByTeacherId(idTeacher);
     }
 
     @DeleteMapping("/deleteById")

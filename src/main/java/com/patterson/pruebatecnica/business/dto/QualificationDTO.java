@@ -13,10 +13,18 @@ public class QualificationDTO {
     private Integer id;
     private double percentage;
     private double note;
+    private Integer idSubject;
+    private Integer idStudent;
 
     public QualificationDTO(Qualification qualification){
         this.id = qualification.getId();
         this.percentage = qualification.getPercentage();
         this.note = qualification.getNote();
+        if(qualification.getSubject()!=null){
+            this.idSubject = qualification.getSubject().getId();
+        }
+        if(qualification.getStudent()!=null){
+            this.idStudent = qualification.getStudent().getId();
+        }
     }
 }

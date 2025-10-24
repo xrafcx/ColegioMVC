@@ -4,6 +4,8 @@ import com.patterson.pruebatecnica.business.dto.QualificationDTO;
 import com.patterson.pruebatecnica.business.exceptions.QualificationNotFoundException;
 import com.patterson.pruebatecnica.data.entities.Qualification;
 import com.patterson.pruebatecnica.data.repositories.QualificationRepository;
+import com.patterson.pruebatecnica.data.repositories.StudentRepository;
+import com.patterson.pruebatecnica.data.repositories.SubjectRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 import java.util.List;
@@ -13,9 +15,13 @@ import java.util.Optional;
 public class QualificationService {
 
     private final QualificationRepository qualificationRepository;
+    private final SubjectRepository subjectRepository;
+    private final StudentRepository studentRepository;
 
-    public QualificationService(QualificationRepository qualificationRepository) {
+    public QualificationService(QualificationRepository qualificationRepository,  SubjectRepository subjectRepository, StudentRepository studentRepository) {
         this.qualificationRepository = qualificationRepository;
+        this.subjectRepository = subjectRepository;
+        this.studentRepository = studentRepository;
     }
 
     @Transactional
@@ -24,6 +30,8 @@ public class QualificationService {
             Qualification qualification = new Qualification();
             qualification.setNote(dto.getNote());
             qualification.setPercentage(dto.getPercentage());
+            qualification.setStudent(dto.getIdStudent()==null?null:studentRepository.getReferenceById(dto.getIdStudent()));
+            qualification.setSubject(dto.getIdSubject()==null?null:subjectRepository.getReferenceById(dto.getIdSubject()));
             return qualification;
         }).toList();
 

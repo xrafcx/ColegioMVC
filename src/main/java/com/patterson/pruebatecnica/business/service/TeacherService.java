@@ -1,8 +1,11 @@
 package com.patterson.pruebatecnica.business.service;
 
+import com.patterson.pruebatecnica.business.dto.QualificationDTO;
 import com.patterson.pruebatecnica.business.dto.TeacherDTO;
 import com.patterson.pruebatecnica.business.exceptions.TeacherNotFoundException;
+import com.patterson.pruebatecnica.data.entities.Qualification;
 import com.patterson.pruebatecnica.data.entities.Teacher;
+import com.patterson.pruebatecnica.data.repositories.SubjectRepository;
 import com.patterson.pruebatecnica.data.repositories.TeacherRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
@@ -13,9 +16,11 @@ import java.util.Optional;
 public class TeacherService {
 
     private final TeacherRepository teacherRepository;
+    private final SubjectRepository subjectRepository;
 
-    public TeacherService(TeacherRepository teacherRepository) {
+    public TeacherService(TeacherRepository teacherRepository, SubjectRepository subjectRepository) {
         this.teacherRepository = teacherRepository;
+        this.subjectRepository = subjectRepository;
     }
 
     @Transactional
@@ -53,5 +58,10 @@ public class TeacherService {
             return;
         }
         throw new TeacherNotFoundException("Teacher not found");
+    }
+
+    @Transactional
+    public List<QualificationDTO> findQualificationsByTeacherId(Integer idTeacher) {
+        return subjectRepository.findQualificationsByTeacherId(idTeacher);
     }
 }
