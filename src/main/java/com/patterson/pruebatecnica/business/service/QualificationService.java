@@ -1,0 +1,56 @@
+package com.patterson.pruebatecnica.business.service;
+
+import com.patterson.pruebatecnica.business.dto.QualificationDTO;
+import com.patterson.pruebatecnica.business.exceptions.QualificationNotFoundException;
+import com.patterson.pruebatecnica.data.entities.Qualification;
+import com.patterson.pruebatecnica.data.repositories.QualificationRepository;
+import jakarta.transaction.Transactional;
+import org.springframework.stereotype.Service;
+import java.util.List;
+import java.util.Optional;
+
+@Service
+public class QualificationService {
+
+    private final QualificationRepository qualificationRepository;
+
+    public QualificationService(QualificationRepository qualificationRepository) {
+        this.qualificationRepository = qualificationRepository;
+    }
+
+    @Transactional
+    public List<QualificationDTO> createQualifications(List<QualificationDTO> qualificationDTOS) {
+        List<Qualification> qlfs = qualificationDTOS.stream().map(dto -> {
+            Qualification qualification = new Qualification();
+            qualification.setNote(dto.getNote());
+            qualification.setPercentage(dto.getPercentage());
+            return qualification;
+        }).toList();
+
+        List<Qualification> qualifications = qualificationRepository.saveAll(qlfs);
+        return qualifications.stream().map(QualificationDTO::new).toList();
+    }
+
+    @Transactional
+    public QualificationDTO findQualificationById(Integer id) throws QualificationNotFoundException {
+        Optional<Qualification> optionalQualification = qualificationRepository.findById(id);
+        if (optionalQualification.isEmpty()) throw new QualificationNotFoundException("Qualification not found");
+        Qualification qualification = optionalQualification.get();
+        return new QualificationDTO(qualification);
+    }
+
+    @Transactional
+    public List<QualificationDTO> findAll() throws QualificationNotFoundException {
+        return qualificationRepository.findAll().stream().map(QualificationDTO::new).toList();
+    }
+
+    @Transactional
+    public void deleteQualificationById(Integer id) throws QualificationNotFoundException {
+        Optional<Qualification> optionalQualification = qualificationRepository.findById(id);
+        if(optionalQualification.isPresent()){
+            qualificationRepository.delete(optionalQualification.get());
+            return;
+        }
+        throw new QualificationNotFoundException("Qualification not found");
+    }
+}
