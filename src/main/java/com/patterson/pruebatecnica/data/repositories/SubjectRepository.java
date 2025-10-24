@@ -16,7 +16,7 @@ public interface SubjectRepository extends JpaRepository<Subject,Integer> {
     List<Subject> findByTeacherId(Integer idTeacher);
 
     @Query("""
-        SELECT DISTINCT q 
+        SELECT q 
         FROM Qualification q JOIN q.subject s
             WHERE s.teacher.id = :idTeacher
     """)
