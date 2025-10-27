@@ -35,6 +35,11 @@ public class QualificationController {
         return qualificationService.findAll();
     }
 
+    @GetMapping("/qualifications")
+    public List<QualificationDTO> findQualifications(@RequestParam Integer idStudent) throws QualificationNotFoundException {
+        return qualificationService.findByStudentId(idStudent);
+    }
+
     @DeleteMapping("/deleteById")
     public ResponseEntity<?> deleteQualificationById(@RequestParam Integer id) throws QualificationNotFoundException {
         qualificationService.deleteQualificationById(id);

@@ -1,5 +1,6 @@
 package com.patterson.pruebatecnica.presentation;
 
+import com.patterson.pruebatecnica.business.dto.QualificationDTO;
 import com.patterson.pruebatecnica.business.dto.StudentDTO;
 import com.patterson.pruebatecnica.business.exceptions.StudentNotFoundException;
 import com.patterson.pruebatecnica.business.service.StudentService;
@@ -35,7 +36,7 @@ public class StudentController {
     }
 
     @DeleteMapping("/deleteById")
-    public ResponseEntity<?> deleteStudentById(@RequestParam Integer id) throws StudentNotFoundException {
+    public ResponseEntity<StudentDTO> deleteStudentById(@RequestParam Integer id) throws StudentNotFoundException {
         studentService.deleteStudentById(id);
         return ResponseEntity.notFound().build();
     }

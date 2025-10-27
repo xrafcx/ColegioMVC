@@ -1,5 +1,6 @@
 package com.patterson.pruebatecnica.business.service;
 
+import com.patterson.pruebatecnica.business.dto.QualificationDTO;
 import com.patterson.pruebatecnica.business.dto.StudentDTO;
 import com.patterson.pruebatecnica.business.exceptions.StudentNotFoundException;
 import com.patterson.pruebatecnica.data.entities.Student;

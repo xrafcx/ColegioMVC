@@ -61,4 +61,9 @@ public class QualificationService {
         }
         throw new QualificationNotFoundException("Qualification not found");
     }
+
+    @Transactional
+    public List<QualificationDTO> findByStudentId(Integer idStudent) {
+        return qualificationRepository.findByStudentId(idStudent).stream().map(QualificationDTO::new).toList();
+    }
 }

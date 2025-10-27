@@ -10,6 +10,5 @@ import java.util.List;
 @Repository
 public interface QualificationRepository extends JpaRepository<Qualification, Integer> {
 
-//    List<Qualification> findBySubjectIdIn(List<Integer> idSubjects);
-//    List<Qualification> findByStudentId(Integer IdStudent);
+    List<Qualification> findByStudentId(Integer idStudent);
 }
