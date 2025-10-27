@@ -1,10 +1,8 @@
 package com.patterson.pruebatecnica.data.repositories;
 
 import com.patterson.pruebatecnica.business.dto.QualificationDTO;
-import com.patterson.pruebatecnica.data.entities.Qualification;
 import com.patterson.pruebatecnica.data.entities.Subject;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.NativeQuery;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
