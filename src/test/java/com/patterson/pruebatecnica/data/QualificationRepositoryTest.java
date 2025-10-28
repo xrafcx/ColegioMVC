@@ -61,7 +61,8 @@ public class QualificationRepositoryTest {
     @Test
     void findByStudentIdTest(){
         //Arrange
-        var studentA = new Student();
+        var student = new Student();
+        student.setFirstName("Juan");
 
         //Act
 
