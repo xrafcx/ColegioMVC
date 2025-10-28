@@ -31,8 +31,7 @@ public class QualificationServiceTest {
         List<QualificationDTO> qualifications = new ArrayList<>();
         qualifications.add(new QualificationDTO());
         qualifications.add(new QualificationDTO());
-
-        when(qualificationRepository.saveAll(anyList())).thenAnswer(inv -> inv.getArgument(0));
+        when(qualificationRepository.saveAll(anyList())).thenAnswer(i -> i.getArgument(0));
 
         //Act
         List <QualificationDTO> qualificationDTOS = qualificationService.createQualifications(qualifications);
@@ -49,7 +48,7 @@ public class QualificationServiceTest {
         Qualification qualification = new Qualification();
         Integer id = 5;
         qualification.setId(id);
-        when(qualificationRepository.findById(id)).thenReturn(Optional.of(qualification));
+        when(qualificationRepository.findById(qualification.getId())).thenReturn(Optional.of(qualification));
 
         //Act
         QualificationDTO qualificationDTO = qualificationService.findQualificationById(qualification.getId());
@@ -57,14 +56,14 @@ public class QualificationServiceTest {
         //Assert
         Assertions.assertNotNull(qualificationDTO);
         Assertions.assertEquals(qualification.getId(), qualificationDTO.getId());
-        verify(qualificationRepository, times(1)).findById(id);
+        verify(qualificationRepository, times(1)).findById(qualification.getId());
     }
 
     @Test
     void findAllTest() throws Exception{
         //Arrange
         int expectedSize = 3;
-        ArrayList<Qualification> qualifications = new ArrayList<>();
+        List<Qualification> qualifications = new ArrayList<>();
         qualifications.add(new Qualification());
         qualifications.add(new Qualification());
         qualifications.add(new Qualification());
@@ -88,10 +87,10 @@ public class QualificationServiceTest {
         when(qualificationRepository.findById(id)).thenReturn(Optional.of(qualification));
 
         //Act
-        qualificationService.deleteQualificationById(id);
+        qualificationService.deleteQualificationById(qualification.getId());
 
         //Assert
-        verify(qualificationRepository, times(1)).findById(id);
+        verify(qualificationRepository, times(1)).findById(qualification.getId());
         verify(qualificationRepository, times(1)).delete(qualification);
     }
 
