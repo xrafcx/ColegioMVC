@@ -1,8 +1,8 @@
-#Gestor de Colegio
+# Gestor de Colegio
 
 ---
 
-##Descripción de la prueba
+## Descripción de la prueba
 
 
 
