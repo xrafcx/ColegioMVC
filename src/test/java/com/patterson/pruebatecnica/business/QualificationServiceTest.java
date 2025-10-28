@@ -28,22 +28,28 @@ public class QualificationServiceTest {
     @Test
     void createQualificationsTest() throws Exception{
         //Arrange
+        List<QualificationDTO> qualifications = new ArrayList<>();
+        qualifications.add(new QualificationDTO());
+        qualifications.add(new QualificationDTO());
 
+        when(qualificationRepository.saveAll(anyList())).thenAnswer(inv -> inv.getArgument(0));
 
         //Act
-
+        List <QualificationDTO> qualificationDTOS = qualificationService.createQualifications(qualifications);
 
         //Assert
+        Assertions.assertNotNull(qualificationDTOS);
+        Assertions.assertEquals(qualifications.size(),qualificationDTOS.size());
+        verify(qualificationRepository).saveAll(argThat(l -> ((List<?>) l).size() == 2));
     }
 
     @Test
     void findQualificationByIdTest() throws Exception {
-
         //Arrange
         Qualification qualification = new Qualification();
         Integer id = 5;
         qualification.setId(id);
-        when(qualificationRepository.findById(5)).thenReturn(Optional.of(qualification));
+        when(qualificationRepository.findById(id)).thenReturn(Optional.of(qualification));
 
         //Act
         QualificationDTO qualificationDTO = qualificationService.findQualificationById(qualification.getId());
@@ -51,7 +57,7 @@ public class QualificationServiceTest {
         //Assert
         Assertions.assertNotNull(qualificationDTO);
         Assertions.assertEquals(qualification.getId(), qualificationDTO.getId());
-        verify(qualificationRepository, times(1)).findById(5);
+        verify(qualificationRepository, times(1)).findById(id);
     }
 
     @Test
@@ -62,7 +68,6 @@ public class QualificationServiceTest {
         qualifications.add(new Qualification());
         qualifications.add(new Qualification());
         qualifications.add(new Qualification());
-
         when(qualificationRepository.findAll()).thenReturn(qualifications);
 
         //Act
