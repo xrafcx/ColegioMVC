@@ -36,7 +36,7 @@ public class QualificationController {
     }
 
     @GetMapping("/qualifications")
-    public List<QualificationDTO> findQualifications(@RequestParam Integer idStudent) throws QualificationNotFoundException {
+    public List<QualificationDTO> findQualificationsByStudentId(@RequestParam Integer idStudent) throws QualificationNotFoundException {
         return qualificationService.findByStudentId(idStudent);
     }
 
