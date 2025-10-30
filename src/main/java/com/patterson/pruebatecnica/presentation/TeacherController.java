@@ -44,6 +44,6 @@ public class TeacherController {
     @DeleteMapping("/deleteById")
     public ResponseEntity<TeacherDTO> deleteTeacherById(@RequestParam Integer id) throws TeacherNotFoundException {
         teacherService.deleteTeacherById(id);
-        return ResponseEntity.noContent().build();
+        return ResponseEntity.ok().build();
     }
 }

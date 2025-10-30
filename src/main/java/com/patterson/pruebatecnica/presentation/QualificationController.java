@@ -43,6 +43,6 @@ public class QualificationController {
     @DeleteMapping("/deleteById")
     public ResponseEntity<?> deleteQualificationById(@RequestParam Integer id) throws QualificationNotFoundException {
         qualificationService.deleteQualificationById(id);
-        return ResponseEntity.notFound().build();
+        return ResponseEntity.ok().build();
     }
 }

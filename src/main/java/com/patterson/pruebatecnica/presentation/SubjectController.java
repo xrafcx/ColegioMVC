@@ -42,6 +42,6 @@ public class SubjectController {
     @DeleteMapping("/deleteById")
     public ResponseEntity<SubjectDTO> deleteSubjectById(@RequestParam Integer id) throws SubjectNotFoundException {
         subjectService.deleteSubjectById(id);
-        return ResponseEntity.noContent().build();
+        return ResponseEntity.ok().build();
     }
 }

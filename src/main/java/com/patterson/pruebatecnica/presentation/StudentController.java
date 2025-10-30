@@ -36,8 +36,8 @@ public class StudentController {
     }
 
     @DeleteMapping("/deleteById")
-    public ResponseEntity<StudentDTO> deleteStudentById(@RequestParam Integer id) throws StudentNotFoundException {
+    public ResponseEntity<?> deleteStudentById(@RequestParam Integer id) throws StudentNotFoundException {
         studentService.deleteStudentById(id);
-        return ResponseEntity.notFound().build();
+        return ResponseEntity.ok().build();
     }
 }
