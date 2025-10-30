@@ -11,17 +11,17 @@ La prueba ha sido desarrollada en Java (usando SpringBoot) y tiene incluido vari
 
 ### Análisis de Requisitos
 
-##### Profesor
+#### Profesor
 
 · Un profesor podrá consultar de cada asignatura que esté a cargo, las calificaciones de sus estudiantes.
 
-##### Alumno
+#### Alumno
 
 · Un alumno podrá obtener todas las calificaciones de sus asignaturas.
 
 ### Análisis Técnico
 
-##### UML
+#### UML
 
 ![UML](assets/UML.drawio.png)
 
