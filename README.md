@@ -29,9 +29,7 @@ La prueba ha sido desarrollada en Java (usando SpringBoot) y tiene incluido vari
 
 Se ha utilizado la arquitectura de 3 capas.
 
-· **Business**: Contiene los servicios de las diferentes clases y gestiona las peticiones que mandan los controladores 
+- **Business**: Contiene los servicios de las diferentes clases y gestiona las peticiones que mandan los controladores 
 correspondientes.
-
-· **Data**: 
-
-· **Presentation**: 
+- **Data**:
+- **Presentation**: 
