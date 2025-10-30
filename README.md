@@ -1,5 +1,4 @@
 
-
 # Gestor de Colegio
 
 ## Descripción de la prueba
@@ -27,3 +26,10 @@ La prueba ha sido desarrollada en Java (usando SpringBoot) y tiene incluido vari
 ![UML](assets/UML.drawio.png)
 
 ### Arquitectura
+
+Se ha utilizado la arquitectura de 3 capas.
+
+· **Business**: Contiene los servicios de las diferentes clases y gestiona las peticiones que mandan los controladores 
+correspondientes.
+· **Data**: 
+· **Presentation**: 
