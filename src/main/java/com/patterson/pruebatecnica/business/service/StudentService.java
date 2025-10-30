@@ -1,6 +1,5 @@
 package com.patterson.pruebatecnica.business.service;
 
-import com.patterson.pruebatecnica.business.dto.QualificationDTO;
 import com.patterson.pruebatecnica.business.dto.StudentDTO;
 import com.patterson.pruebatecnica.business.exceptions.StudentNotFoundException;
 import com.patterson.pruebatecnica.data.entities.Student;
@@ -19,6 +18,12 @@ public class StudentService {
         this.studentRepository = studentRepository;
     }
 
+    /**
+     *
+     * @param
+     * @return
+     */
+
     @Transactional
     public List<StudentDTO> createStudents(List<StudentDTO> studentsDTOs) {
         List<Student> stds = studentsDTOs.stream().map(dto -> {
@@ -33,6 +38,12 @@ public class StudentService {
         return students.stream().map(StudentDTO::new).toList();
     }
 
+    /**
+     *
+     * @param
+     * @return
+     */
+
     @Transactional
     public StudentDTO findStudentById(Integer id) throws StudentNotFoundException {
         Optional<Student> optionalStudent = studentRepository.findById(id);
@@ -41,10 +52,22 @@ public class StudentService {
         return new StudentDTO(student);
     }
 
+    /**
+     *
+     * @param
+     * @return
+     */
+
     @Transactional
     public List<StudentDTO> findAll() throws StudentNotFoundException {
         return studentRepository.findAll().stream().map(StudentDTO::new).toList();
     }
+
+    /**
+     *
+     * @param
+     * @return
+     */
 
     @Transactional
     public void deleteStudentById(Integer id) throws StudentNotFoundException {

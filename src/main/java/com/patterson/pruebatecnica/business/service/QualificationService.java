@@ -24,6 +24,12 @@ public class QualificationService {
         this.studentRepository = studentRepository;
     }
 
+    /**
+     * Crea y guarda las calificaciones a partir de los DTO, y devuelve las creadas como DTO.
+     * @param qualificationDTOS lista de calificaciones en DTO
+     * @return lista de calificaciones DTO creadas
+     */
+
     @Transactional
     public List<QualificationDTO> createQualifications(List<QualificationDTO> qualificationDTOS) {
         List<Qualification> qlfs = qualificationDTOS.stream().map(dto -> {
@@ -39,6 +45,12 @@ public class QualificationService {
         return qualifications.stream().map(QualificationDTO::new).toList();
     }
 
+    /**
+     *
+     * @param
+     * @return
+     */
+
     @Transactional
     public QualificationDTO findQualificationById(Integer id) throws QualificationNotFoundException {
         Optional<Qualification> optionalQualification = qualificationRepository.findById(id);
@@ -47,10 +59,22 @@ public class QualificationService {
         return new QualificationDTO(qualification);
     }
 
+    /**
+     *
+     * @param
+     * @return
+     */
+
     @Transactional
     public List<QualificationDTO> findAll() throws QualificationNotFoundException {
         return qualificationRepository.findAll().stream().map(QualificationDTO::new).toList();
     }
+
+    /**
+     *
+     * @param
+     * @return
+     */
 
     @Transactional
     public void deleteQualificationById(Integer id) throws QualificationNotFoundException {
@@ -61,6 +85,12 @@ public class QualificationService {
         }
         throw new QualificationNotFoundException("Qualification not found");
     }
+
+    /**
+     *
+     * @param
+     * @return
+     */
 
     @Transactional
     public List<QualificationDTO> findByStudentId(Integer idStudent) {

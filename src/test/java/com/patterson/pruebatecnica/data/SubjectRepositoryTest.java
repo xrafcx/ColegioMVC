@@ -8,7 +8,6 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-
 import java.util.List;
 
 @SpringBootTest
@@ -82,16 +81,4 @@ public class SubjectRepositoryTest {
         Assertions.assertNotNull(response);
         Assertions.assertEquals(2, response.size());
     }
-
-//    @Test
-//    void findQualificationByTeacherIdTest(){
-//        //Arrange
-//
-//
-//        //Act
-//
-//
-//        //Assert
-//
-//    }
 }

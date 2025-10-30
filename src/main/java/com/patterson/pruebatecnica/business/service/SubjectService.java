@@ -21,6 +21,12 @@ public class SubjectService {
         this.teacherRepository = teacherRepository;
     }
 
+    /**
+     *
+     * @param
+     * @return
+     */
+
     @Transactional
     public List<SubjectDTO> createSubjects(List<SubjectDTO> subjectDTOs) {
         List<Subject> sbjs = subjectDTOs.stream().map(dto -> {
@@ -34,6 +40,12 @@ public class SubjectService {
         return subjects.stream().map(SubjectDTO::new).toList();
     }
 
+    /**
+     *
+     * @param
+     * @return
+     */
+
     @Transactional
     public SubjectDTO findSubjectById(Integer id) throws SubjectNotFoundException {
         Optional<Subject> optionalSubject = subjectRepository.findById(id);
@@ -42,10 +54,22 @@ public class SubjectService {
         return new SubjectDTO(subject);
     }
 
+    /**
+     *
+     * @param
+     * @return
+     */
+
     @Transactional
     public List<SubjectDTO> findAll() throws SubjectNotFoundException {
         return subjectRepository.findAll().stream().map(SubjectDTO::new).toList();
     }
+
+    /**
+     *
+     * @param
+     * @return
+     */
 
     @Transactional
     public void deleteSubjectById(Integer id) throws SubjectNotFoundException {
@@ -56,6 +80,12 @@ public class SubjectService {
             }
         throw new SubjectNotFoundException("Subject not found");
     }
+
+    /**
+     *
+     * @param
+     * @return
+     */
 
     @Transactional
     public List<SubjectDTO> findSubjectsByTeacherId(Integer idTeacher) {

@@ -3,7 +3,6 @@ package com.patterson.pruebatecnica.business.service;
 import com.patterson.pruebatecnica.business.dto.QualificationDTO;
 import com.patterson.pruebatecnica.business.dto.TeacherDTO;
 import com.patterson.pruebatecnica.business.exceptions.TeacherNotFoundException;
-import com.patterson.pruebatecnica.data.entities.Qualification;
 import com.patterson.pruebatecnica.data.entities.Teacher;
 import com.patterson.pruebatecnica.data.repositories.SubjectRepository;
 import com.patterson.pruebatecnica.data.repositories.TeacherRepository;
@@ -23,6 +22,12 @@ public class TeacherService {
         this.subjectRepository = subjectRepository;
     }
 
+    /**
+     *
+     * @param
+     * @return
+     */
+
     @Transactional
     public List<TeacherDTO> createTeachers(List<TeacherDTO> teacherDTOs) {
         List<Teacher> tchs = teacherDTOs.stream().map(dto->{
@@ -37,6 +42,12 @@ public class TeacherService {
         return teachers.stream().map(TeacherDTO::new).toList();
     }
 
+    /**
+     *
+     * @param
+     * @return
+     */
+
     @Transactional
     public TeacherDTO findTeacherById (Integer id) throws TeacherNotFoundException {
         Optional<Teacher> optionalTeacher = teacherRepository.findById(id);
@@ -45,10 +56,22 @@ public class TeacherService {
         return new TeacherDTO(teacher);
     }
 
+    /**
+     *
+     * @param
+     * @return
+     */
+
     @Transactional
     public List<TeacherDTO> findAll () throws TeacherNotFoundException {
         return teacherRepository.findAll().stream().map(TeacherDTO::new).toList();
     }
+
+    /**
+     *
+     * @param
+     * @return
+     */
 
     @Transactional
     public void deleteTeacherById(Integer id) throws TeacherNotFoundException {
@@ -59,6 +82,12 @@ public class TeacherService {
         }
         throw new TeacherNotFoundException("Teacher not found");
     }
+
+    /**
+     *
+     * @param
+     * @return
+     */
 
     @Transactional
     public List<QualificationDTO> findQualificationsByTeacherId(Integer idTeacher) {

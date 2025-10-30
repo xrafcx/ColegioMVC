@@ -4,7 +4,6 @@ import com.patterson.pruebatecnica.business.dto.QualificationDTO;
 import com.patterson.pruebatecnica.business.dto.TeacherDTO;
 import com.patterson.pruebatecnica.business.exceptions.TeacherNotFoundException;
 import com.patterson.pruebatecnica.business.service.TeacherService;
-import com.patterson.pruebatecnica.data.entities.Qualification;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
