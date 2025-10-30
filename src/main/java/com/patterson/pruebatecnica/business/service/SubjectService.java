@@ -22,9 +22,9 @@ public class SubjectService {
     }
 
     /**
-     *
-     * @param
-     * @return
+     * Crea y guarda las asignaturas a partir de los DTO, y devuelve las creadas como DTO.
+     * @param subjectDTOs lista de asignaturas en DTO.
+     * @return lista de asignaturas DTO creadas.
      */
 
     @Transactional
@@ -41,9 +41,9 @@ public class SubjectService {
     }
 
     /**
-     *
-     * @param
-     * @return
+     * Se busca una asignatura a partir del ID.
+     * @param id identificador de la asignatura.
+     * @return asignatura buscada.
      */
 
     @Transactional
@@ -55,9 +55,8 @@ public class SubjectService {
     }
 
     /**
-     *
-     * @param
-     * @return
+     * Devuelve todas las asignaturas guardadas.
+     * @return lista de las asignaturas.
      */
 
     @Transactional
@@ -66,9 +65,8 @@ public class SubjectService {
     }
 
     /**
-     *
-     * @param
-     * @return
+     * Elimina una asignatura a partir del ID.
+     * @param id identificador de la asignatura.
      */
 
     @Transactional
@@ -82,9 +80,9 @@ public class SubjectService {
     }
 
     /**
-     *
-     * @param
-     * @return
+     * Devuelve todas las asignaturas que imparte un profesor.
+     * @param idTeacher identificador del profesor.
+     * @return lista de las asignaturas que imparte el profesor.
      */
 
     @Transactional

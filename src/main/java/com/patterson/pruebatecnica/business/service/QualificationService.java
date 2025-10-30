@@ -26,8 +26,8 @@ public class QualificationService {
 
     /**
      * Crea y guarda las calificaciones a partir de los DTO, y devuelve las creadas como DTO.
-     * @param qualificationDTOS lista de calificaciones en DTO
-     * @return lista de calificaciones DTO creadas
+     * @param qualificationDTOS lista de calificaciones en DTO.
+     * @return lista de calificaciones DTO creadas.
      */
 
     @Transactional
@@ -46,9 +46,9 @@ public class QualificationService {
     }
 
     /**
-     *
-     * @param
-     * @return
+     * Se busca una calificación a partir del ID.
+     * @param id identificador de la calificacion.
+     * @return calificacion buscada.
      */
 
     @Transactional
@@ -60,9 +60,8 @@ public class QualificationService {
     }
 
     /**
-     *
-     * @param
-     * @return
+     * Devuelve todas las calificaciones guardadas.
+     * @return lista de las calificaciones.
      */
 
     @Transactional
@@ -71,9 +70,8 @@ public class QualificationService {
     }
 
     /**
-     *
-     * @param
-     * @return
+     * Elimina una calificacion a partir del ID.
+     * @param id identificador de la calificacion.
      */
 
     @Transactional
@@ -87,9 +85,9 @@ public class QualificationService {
     }
 
     /**
-     *
-     * @param
-     * @return
+     * Devuelve todas las calificaciones de un estudiante.
+     * @param idStudent identificador del estudiante.
+     * @return lista de las calificaciones del estudiante.
      */
 
     @Transactional

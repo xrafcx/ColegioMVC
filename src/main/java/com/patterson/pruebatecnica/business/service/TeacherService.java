@@ -23,9 +23,9 @@ public class TeacherService {
     }
 
     /**
-     *
-     * @param
-     * @return
+     * Crea y guarda los profesores a partir de los DTO, y devuelve los creados como DTO.
+     * @param teacherDTOs lista de profesores en DTO.
+     * @return lista de profesores DTO creados.
      */
 
     @Transactional
@@ -43,9 +43,9 @@ public class TeacherService {
     }
 
     /**
-     *
-     * @param
-     * @return
+     * Se busca un profesor a partir del ID.
+     * @param id identificador del profesor.
+     * @return profesor buscado.
      */
 
     @Transactional
@@ -57,9 +57,8 @@ public class TeacherService {
     }
 
     /**
-     *
-     * @param
-     * @return
+     * Devuelve todos los profesores guardados.
+     * @return lista de los profesores.
      */
 
     @Transactional
@@ -68,9 +67,8 @@ public class TeacherService {
     }
 
     /**
-     *
-     * @param
-     * @return
+     * Elimina un profesor a partir del ID.
+     * @param id identificador del profesor.
      */
 
     @Transactional
@@ -84,9 +82,9 @@ public class TeacherService {
     }
 
     /**
-     *
-     * @param
-     * @return
+     * Devuelve todas las calificaciones de las asignaturas que imparta un profesor.
+     * @param idTeacher identificador del profesor.
+     * @return lista de las calificaciones de las asignaturas.
      */
 
     @Transactional

@@ -15,13 +15,14 @@ public class StudentService {
     private final StudentRepository studentRepository;
 
     public StudentService(StudentRepository studentRepository) {
+
         this.studentRepository = studentRepository;
     }
 
     /**
-     *
-     * @param
-     * @return
+     * Crea y guarda los estudiantes a partir de los DTO, y devuelve los creados como DTO.
+     * @param studentsDTOs lista de estudiantes en DTO.
+     * @return lista de estudiantes DTO creados.
      */
 
     @Transactional
@@ -39,9 +40,9 @@ public class StudentService {
     }
 
     /**
-     *
-     * @param
-     * @return
+     * Se busca un estudiante a partir del ID.
+     * @param id identificador del estudiante.
+     * @return estudiante buscado.
      */
 
     @Transactional
@@ -53,9 +54,8 @@ public class StudentService {
     }
 
     /**
-     *
-     * @param
-     * @return
+     * Devuelve todos los estudiantes guardados.
+     * @return lista de los estudiantes.
      */
 
     @Transactional
@@ -64,9 +64,8 @@ public class StudentService {
     }
 
     /**
-     *
-     * @param
-     * @return
+     * Elimina un estudiante a partir del ID.
+     * @param id identificador del estudiante.
      */
 
     @Transactional
