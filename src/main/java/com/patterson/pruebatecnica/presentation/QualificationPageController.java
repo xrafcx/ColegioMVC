@@ -2,10 +2,15 @@ package com.patterson.pruebatecnica.presentation;
 
 import com.patterson.pruebatecnica.business.dto.QualificationDTO;
 import com.patterson.pruebatecnica.business.exceptions.QualificationNotFoundException;
+import com.patterson.pruebatecnica.business.exceptions.StudentNotFoundException;
+import com.patterson.pruebatecnica.business.exceptions.SubjectNotFoundException;
 import com.patterson.pruebatecnica.business.service.QualificationService;
+import com.patterson.pruebatecnica.business.service.StudentService;
+import com.patterson.pruebatecnica.business.service.SubjectService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 
@@ -14,9 +19,13 @@ import java.util.List;
 public class QualificationPageController {
 
     private final QualificationService service;
+    private final SubjectService subjectService;
+    private final StudentService studentService;
 
-    public QualificationPageController(QualificationService service) {
+    public QualificationPageController(QualificationService service,  SubjectService subjectService, StudentService studentService) {
         this.service = service;
+        this.subjectService = subjectService;
+        this.studentService = studentService;
     }
 
     @GetMapping
@@ -38,15 +47,62 @@ public class QualificationPageController {
     }
 
     @PostMapping
-    public String create(@ModelAttribute("qualification") QualificationDTO dto) {
-        service.createQualifications(List.of(dto));
+    public String create(@ModelAttribute("qualification") QualificationDTO dto, org.springframework.validation.BindingResult binding,
+                         Model model, RedirectAttributes ra) {
+
+        if (dto.getIdStudent() != null) {
+            try {
+                studentService.findStudentById(dto.getIdStudent()); // existe?
+            } catch (StudentNotFoundException e) {
+                binding.rejectValue("idStudent", "student.notFound", "El ID de alumno no existe.");
+            }
+        }
+
+        if (dto.getIdSubject() != null) {
+            try {
+                subjectService.findSubjectById(dto.getIdSubject()); // existe?
+            } catch (SubjectNotFoundException e) {
+                binding.rejectValue("idSubject", "subject.notFound", "El ID de asignatura no existe.");
+            }
+        }
+
+        if (binding.hasErrors()) {
+            return "qualification/form";
+        }
+
+        service.createQualifications(java.util.List.of(dto));
+        ra.addFlashAttribute("success", "Calificación creada.");
         return "redirect:/ui/qualification";
     }
 
     @PostMapping("/{id}")
-    public String update(@PathVariable Integer id, @ModelAttribute("qualification") QualificationDTO dto) throws QualificationNotFoundException {
+    public String update(@PathVariable Integer id, @ModelAttribute("qualification") QualificationDTO dto,
+                         org.springframework.validation.BindingResult binding, Model model,
+                         RedirectAttributes ra) throws QualificationNotFoundException {
+
+        if (dto.getIdStudent() != null) {
+            try {
+                studentService.findStudentById(dto.getIdStudent());
+            } catch (StudentNotFoundException e) {
+                binding.rejectValue("idStudent", "student.notFound", "El ID de alumno no existe.");
+            }
+        }
+
+        if (dto.getIdSubject() != null) {
+            try {
+                subjectService.findSubjectById(dto.getIdSubject());
+            } catch (SubjectNotFoundException e) {
+                binding.rejectValue("idSubject", "subject.notFound", "El ID de asignatura no existe.");
+            }
+        }
+
+        if (binding.hasErrors()) {
+            return "qualification/form";
+        }
+
         dto.setId(id);
         service.updateQualification(id, dto);
+        ra.addFlashAttribute("success", "Calificación actualizada.");
         return "redirect:/ui/qualification";
     }
 

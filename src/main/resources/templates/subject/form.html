@@ -24,11 +24,12 @@
         <div>
             <label for="idTeacher">ID Profesor </label>
             <input id="idTeacher" type="text" th:field="*{idTeacher}">
+            <small class="error" th:if="${#fields.hasErrors('idTeacher')}"
+                   th:errors="*{idTeacher}">Error</small>
         </div>
         <div class="actions">
             <button class="btn" type="submit"
                     th:text="${subject.id} != null ? 'Guardar cambios' : 'Guardar'">Guardar</button>
-            <a class="btn secondary" th:href="@{/ui/subject}">Cancelar</a>
         </div>
     </form>
 </div>
