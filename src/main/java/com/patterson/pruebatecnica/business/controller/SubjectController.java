@@ -1,4 +1,4 @@
-package com.patterson.pruebatecnica.presentation;
+package com.patterson.pruebatecnica.business.controller;
 
 import com.patterson.pruebatecnica.business.dto.SubjectDTO;
 import com.patterson.pruebatecnica.business.exceptions.SubjectNotFoundException;

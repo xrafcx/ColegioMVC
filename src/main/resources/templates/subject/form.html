@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${subject.id} != null ? 'Editar asignatura' : 'Nueva asignatura'">Asignatura</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h1 th:text="${subject.id} != null ? 'Editar asignatura' : 'Nueva asignatura'">Asignatura</h1>
+        <div class="actions">
+            <a class="btn secondary" th:href="@{/ui/subject}">Volver</a>
+        </div>
+    </div>
+    <form class="form"
+          th:action="${subject.id} != null ? @{/ui/subject/{id}(id=${subject.id})} : @{/ui/subject}"
+          th:object="${subject}" method="post">
+        <input type="hidden" th:field="*{id}"/>
+        <div>
+            <label for="name">Nombre</label>
+            <input id="name" type="text" th:field="*{name}" required>
+        </div>
+        <div>
+            <label for="idTeacher">ID Profesor </label>
+            <input id="idTeacher" type="text" th:field="*{idTeacher}">
+        </div>
+        <div class="actions">
+            <button class="btn" type="submit"
+                    th:text="${subject.id} != null ? 'Guardar cambios' : 'Guardar'">Guardar</button>
+            <a class="btn secondary" th:href="@{/ui/subject}">Cancelar</a>
+        </div>
+    </form>
+</div>
+</body>
+</html>

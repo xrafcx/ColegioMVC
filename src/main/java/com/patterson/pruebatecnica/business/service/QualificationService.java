@@ -70,6 +70,26 @@ public class QualificationService {
     }
 
     /**
+     * Actualiza la información de una calificación a partir de su ID.
+     * @param id identificador de la calificación.
+     * @param dto calificación en dto.
+     */
+
+    @Transactional
+    public QualificationDTO updateQualification(Integer id, QualificationDTO dto) throws QualificationNotFoundException {
+        Qualification entity = qualificationRepository.findById(id)
+                .orElseThrow(() -> new QualificationNotFoundException("Qualification not found: " + id));
+
+        entity.setPercentage(dto.getPercentage());
+        entity.setNote(dto.getNote());
+        if (dto.getIdStudent() != null) studentRepository.findById(dto.getIdStudent()).ifPresent(entity::setStudent);
+        if (dto.getIdSubject() != null) subjectRepository.findById(dto.getIdSubject()).ifPresent(entity::setSubject);
+
+        Qualification saved = qualificationRepository.save(entity);
+        return new QualificationDTO(saved);
+    }
+
+    /**
      * Elimina una calificacion a partir del ID.
      * @param id identificador de la calificacion.
      */

@@ -1,5 +1,6 @@
 package com.patterson.pruebatecnica.presentation;
 
+import com.patterson.pruebatecnica.business.controller.QualificationController;
 import com.patterson.pruebatecnica.business.dto.QualificationDTO;
 import com.patterson.pruebatecnica.business.service.QualificationService;
 import org.junit.jupiter.api.Test;

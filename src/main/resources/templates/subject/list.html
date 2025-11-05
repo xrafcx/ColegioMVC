@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Asignaturas</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h1>Asignaturas</h1>
+        <div class="actions">
+            <a class="btn" th:href="@{/ui/subject/new}">Nueva</a>
+            <a class="btn secondary" th:href="@{/}">Inicio</a>
+        </div>
+    </div>
+    <div th:if="${#lists.isEmpty(subjects)}" class="empty">No hay asignaturas todavía.</div>
+    <table class="table" th:if="${!#lists.isEmpty(subjects)}">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Profesor</th>
+            <th style="width:180px;">Acciones</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="s : ${subjects}">
+            <td th:text="${s.id}"></td>
+            <td th:text="${s.name}"></td>
+            <td th:text="${s.nameTeacher}"></td>
+            <td>
+                <div class="row-actions">
+                    <a class="btn small" th:href="@{|/ui/subject/${s.id}/edit|}">Editar</a>
+                    <form th:action="@{|/ui/subject/${s.id}/delete|}" method="post" style="display:inline" onsubmit="return confirm('¿Eliminar esta asignatura?')">
+                        <button class="btn danger small" type="submit">Eliminar</button>
+                    </form>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

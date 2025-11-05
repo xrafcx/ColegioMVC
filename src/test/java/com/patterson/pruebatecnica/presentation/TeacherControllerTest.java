@@ -1,5 +1,6 @@
 package com.patterson.pruebatecnica.presentation;
 
+import com.patterson.pruebatecnica.business.controller.TeacherController;
 import com.patterson.pruebatecnica.business.dto.QualificationDTO;
 import com.patterson.pruebatecnica.business.dto.TeacherDTO;
 import com.patterson.pruebatecnica.business.service.TeacherService;

@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${teacher.id} != null ? 'Editar profesor' : 'Nuevo profesor'">Profesor</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h1 th:text="${teacher.id} != null ? 'Editar profesor' : 'Nuevo profesor'">Profesor</h1>
+        <div class="actions">
+            <a class="btn secondary" th:href="@{/ui/teacher}">Volver</a>
+        </div>
+    </div>
+    <form class="form"
+          th:action="${teacher.id} != null ? @{/ui/teacher/{id}(id=${teacher.id})} : @{/ui/teacher}"
+          th:object="${teacher}" method="post">
+        <input type="hidden" th:field="*{id}"/>
+        <div>
+            <label for="firstName">Nombre</label>
+            <input id="firstName" type="text" th:field="*{firstName}" required>
+        </div>
+        <div>
+            <label for="lastName">Apellidos</label>
+            <input id="lastName" type="text" th:field="*{lastName}" required>
+        </div>
+        <div>
+            <label for="email">Email</label>
+            <input id="email" type="email" th:field="*{email}" required>
+        </div>
+        <div class="actions">
+            <button class="btn" type="submit"
+                    th:text="${teacher.id} != null ? 'Guardar cambios' : 'Guardar'">Guardar</button>
+            <a class="btn secondary" th:href="@{/ui/teacher}">Cancelar</a>
+        </div>
+    </form>
+</div>
+</body>
+</html>

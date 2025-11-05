@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${qualification.id} != null ? 'Editar calificación' : 'Nueva calificación'">Calificación</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h1 th:text="${qualification.id} != null ? 'Editar calificación' : 'Nueva calificación'">Calificación</h1>
+        <div class="actions">
+            <a class="btn secondary" th:href="@{/ui/qualification}">Volver</a>
+        </div>
+    </div>
+    <form class="form"
+          th:action="${qualification.id} != null ? @{/ui/qualification/{id}(id=${qualification.id})} : @{/ui/qualification}"
+          th:object="${qualification}" method="post">
+        <input type="hidden" th:field="*{id}"/>
+        <div>
+            <label for="percentage">Porcentaje</label>
+            <input id="percentage" type="number" min = "0" max = "100" step="5" th:field="*{percentage}" required>
+        </div>
+        <div>
+            <label for="note">Nota</label>
+            <input id="note" type="number" step="0.1" min="0" max="10" th:field="*{note}" required>
+            <small class="error" th:if="${#fields.hasErrors('note')}" th:errors="*{note}">Error</small>
+        </div>
+        <div>
+            <label for="idStudent">ID Alumno</label>
+            <input id="idStudent" type="text" inputmode="numeric" pattern="[0-9]+" th:field="*{idStudent}" required title="Solo números">
+        </div>
+        <div>
+            <label for="idSubject">ID Asignatura</label>
+            <input id="idSubject" type="text" inputmode="numeric" pattern="[0-9]+" th:field="*{idSubject}" required title="Solo números">
+        </div>
+        <div class="actions">
+            <button class="btn" type="submit"
+                    th:text="${qualification.id} != null ? 'Guardar cambios' : 'Guardar'">Guardar</button>
+            <a class="btn secondary" th:href="@{/ui/qualification}">Cancelar</a>
+        </div>
+    </form>
+</div>
+</body>
+</html>

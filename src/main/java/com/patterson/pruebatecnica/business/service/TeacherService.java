@@ -67,6 +67,32 @@ public class TeacherService {
     }
 
     /**
+     * Actualiza la información de un profesor a partir de su ID.
+     * @param id identificador del profesor.
+     * @param dto profesor en dto.
+     */
+
+    @Transactional
+    public TeacherDTO updateTeacher(Integer id, TeacherDTO dto) throws TeacherNotFoundException {
+        Teacher entity = teacherRepository.findById(id)
+                .orElseThrow(() -> new TeacherNotFoundException("Teacher not found: " + id));
+
+        entity.setFirstName(dto.getFirstName());
+        entity.setLastName(dto.getLastName());
+        entity.setEmail(dto.getEmail());
+
+        Teacher saved = teacherRepository.save(entity);
+
+        TeacherDTO out = new TeacherDTO();
+        out.setId(saved.getId());
+        out.setFirstName(saved.getFirstName());
+        out.setLastName(saved.getLastName());
+        out.setEmail(saved.getEmail());
+        return out;
+    }
+
+
+    /**
      * Elimina un profesor a partir del ID.
      * @param id identificador del profesor.
      */

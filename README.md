@@ -1,11 +1,12 @@
 
 # Gestor de Colegio
 
-## Descripción de la prueba
+## Descripción del proyecto
 
+El proyecto consiste en realizar una WebApp que permita realizar ciertas consultas de un colegio. Principálmente serán
+los alumnos y profesores quienes podrán realizar ciertas consultas. 
 
-
-La prueba ha sido desarrollada en Java (usando SpringBoot) y tiene incluido varios tests para las 3 capas implementadas.
+El proyecto ha sido desarrollado en Java (usando SpringBoot) y tiene incluido varios tests para las 3 capas implementadas.
 
 ## Análisis
 

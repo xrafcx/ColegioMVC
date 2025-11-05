@@ -64,6 +64,28 @@ public class StudentService {
     }
 
     /**
+     * Actualiza la información de un alumno a partir de su ID.
+     * @param id identificador del alumno.
+     * @param dto alumno en dto.
+     */
+
+    @Transactional
+    public StudentDTO updateStudent(Integer id, StudentDTO dto) throws StudentNotFoundException {
+        Student entity = studentRepository.findById(id)
+                .orElseThrow(() -> new StudentNotFoundException("Student not found: " + id));
+        entity.setFirstName(dto.getFirstName());
+        entity.setLastName(dto.getLastName());
+        entity.setEmail(dto.getEmail());
+        Student saved = studentRepository.save(entity);
+        StudentDTO out = new StudentDTO();
+        out.setId(saved.getId());
+        out.setFirstName(saved.getFirstName());
+        out.setLastName(saved.getLastName());
+        out.setEmail(saved.getEmail());
+        return out;
+    }
+
+    /**
      * Elimina un estudiante a partir del ID.
      * @param id identificador del estudiante.
      */

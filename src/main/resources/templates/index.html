@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Inicio</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<div class="container">
+    <h1>Panel principal</h1>
+    <p>Elige una sección:</p>
+
+    <div class="actions">
+        <a class="btn" th:href="@{/ui/teacher}">Profesores</a>
+        <a class="btn" th:href="@{/ui/student}">Alumnos</a>
+        <a class="btn" th:href="@{/ui/subject}">Asignaturas</a>
+        <a class="btn" th:href="@{/ui/qualification}">Calificaciones</a>
+    </div>
+</div>
+</body>
+</html>

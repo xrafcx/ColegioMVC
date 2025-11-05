@@ -1,5 +1,6 @@
 package com.patterson.pruebatecnica.presentation;
 
+import com.patterson.pruebatecnica.business.controller.StudentController;
 import com.patterson.pruebatecnica.business.dto.StudentDTO;
 import com.patterson.pruebatecnica.business.service.StudentService;
 import org.junit.jupiter.api.Test;

@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Calificaciones</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h1>Calificaciones</h1>
+        <div class="actions">
+            <a class="btn" th:href="@{/ui/qualification/new}">Nueva</a>
+            <a class="btn secondary" th:href="@{/}">Inicio</a>
+        </div>
+    </div>
+    <div th:if="${#lists.isEmpty(qualifications)}" class="empty">No hay calificaciones todavía.</div>
+    <table class="table" th:if="${!#lists.isEmpty(qualifications)}">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Alumno</th>
+            <th>Asignatura</th>
+            <th>%</th>
+            <th>Nota</th>
+            <th style="width:180px;">Acciones</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="q : ${qualifications}">
+            <td th:text="${q.id}"></td>
+            <td th:text="${q.nameStudent}"></td>
+            <td th:text="${q.nameSubject}"></td>
+            <td th:text="${q.percentage}"></td>
+            <td th:text="${q.note}"></td>
+            <td>
+                <div class="row-actions">
+                    <a class="btn small" th:href="@{|/ui/qualification/${q.id}/edit|}">Editar</a>
+                    <form th:action="@{|/ui/qualification/${q.id}/delete|}" method="post" style="display:inline"
+                          onsubmit="return confirm('¿Eliminar esta calificación?')">
+                        <button class="btn danger small" type="submit">Eliminar</button>
+                    </form>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
