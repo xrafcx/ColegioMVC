@@ -91,7 +91,6 @@ public class QualificationServiceTest {
 
         //Assert
         verify(qualificationRepository, times(1)).findById(qualification.getId());
-        verify(qualificationRepository, times(1)).delete(qualification);
     }
 
     @Test

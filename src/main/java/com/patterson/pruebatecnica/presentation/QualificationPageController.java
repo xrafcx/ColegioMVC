@@ -20,7 +20,7 @@ public class QualificationPageController {
     private final SubjectService subjectService;
     private final StudentService studentService;
 
-    public QualificationPageController(QualificationService service,  SubjectService subjectService, StudentService studentService) {
+    public QualificationPageController(QualificationService service, SubjectService subjectService, StudentService studentService) {
         this.service = service;
         this.subjectService = subjectService;
         this.studentService = studentService;

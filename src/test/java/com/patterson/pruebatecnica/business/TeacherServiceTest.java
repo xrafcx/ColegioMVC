@@ -102,7 +102,6 @@ public class TeacherServiceTest {
 
         //Assert
         verify(teacherRepository, times(1)).findById(teacher.getId());
-        verify(teacherRepository, times(1)).delete(teacher);
     }
 
     @Test

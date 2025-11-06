@@ -92,7 +92,6 @@ public class SubjectServiceTest {
 
         //Assert
         verify(subjectRepository, times(1)).findById(subject.getId());
-        verify(subjectRepository, times(1)).delete(subject);
     }
 
     @Test

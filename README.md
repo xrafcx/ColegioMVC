@@ -16,9 +16,13 @@ El proyecto ha sido desarrollado en Java (usando SpringBoot) y tiene incluido va
 
 · Un profesor podrá consultar de cada asignatura que esté a cargo, las calificaciones de sus estudiantes.
 
+![UML](assets/consultaProfe.png)
+
 #### Alumno
 
 · Un alumno podrá obtener todas las calificaciones de sus asignaturas.
+
+![UML](assets/consultaAlumno.png)
 
 ### Análisis Técnico
 

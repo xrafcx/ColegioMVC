@@ -16,10 +16,10 @@ public class Qualification {
     private Integer id;
 
     @Column(name = "percentage")
-    private double percentage;
+    private Double percentage;
 
     @Column(name = "note")
-    private double note;
+    private Double note;
 
     @ManyToOne
     @JoinColumn(name = "idSubject", referencedColumnName = "id")

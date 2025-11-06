@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Consultas del Profesor</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h1>Consultas del Profesor</h1>
+        <div class="actions">
+            <a class="btn secondary" th:href="@{/}">Inicio</a>
+        </div>
+    </div>
+    <form class="form" method="get" th:action="@{/ui/consultationTeacher}">
+        <div>
+            <label for="idTeacher">ID del Profesor</label>
+            <input id="idTeacher" name="idTeacher" type="text"
+                   th:value="${idTeacher}" inputmode="numeric" pattern="\d+" required
+                   title="Introducir ID">
+        </div>
+        <div class="actions">
+            <button class="btn" type="submit">Buscar calificaciones</button>
+        </div>
+        <small class="error" th:if="${error}" th:text="${error}">Error</small>
+    </form>
+    <table class="table" th:if="${#lists.isEmpty(results) == false}">
+        <thead>
+        <tr>
+            <th>Alumno</th>
+            <th>Asignatura</th>
+            <th>Nota</th>
+            <th>Porcentaje (%)</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="q : ${results}">
+            <td th:text="${q.nameStudent}"></td>
+            <td th:text="${q.nameSubject}"></td>
+            <td th:text="${q.note}"></td>
+            <td th:text="${q.percentage}"></td>
+        </tr>
+        </tbody>
+    </table>
+    <p th:if="${hasSearched} and ${#lists.isEmpty(results)}">Las asignaturas que imparte este profesor no tiene calificaciones.</p>
+</div>
+</body>
+</html>

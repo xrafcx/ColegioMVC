@@ -18,7 +18,7 @@ public class QualificationService {
     private final SubjectRepository subjectRepository;
     private final StudentRepository studentRepository;
 
-    public QualificationService(QualificationRepository qualificationRepository,  SubjectRepository subjectRepository, StudentRepository studentRepository) {
+    public QualificationService(QualificationRepository qualificationRepository, SubjectRepository subjectRepository, StudentRepository studentRepository) {
         this.qualificationRepository = qualificationRepository;
         this.subjectRepository = subjectRepository;
         this.studentRepository = studentRepository;

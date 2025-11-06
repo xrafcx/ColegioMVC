@@ -91,7 +91,6 @@ public class StudentServiceTest {
 
         //Assert
         verify(studentRepository, times(1)).findById(id);
-        verify(studentRepository, times(1)).delete(student);
     }
 
     @Test

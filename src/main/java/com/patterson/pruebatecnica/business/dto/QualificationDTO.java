@@ -16,10 +16,10 @@ public class QualificationDTO {
     private Integer id;
 
     @Schema(description = "Porcentaje de la calificación (%)", example = "40")
-    private double percentage;
+    private Double percentage;
 
     @Schema(description = "Nota obtenida", example = "8.5")
-    private double note;
+    private Double note;
 
     @Schema(description = "ID de la asignatura", example = "10", nullable = true)
     private Integer idSubject;
