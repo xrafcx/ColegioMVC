@@ -9,8 +9,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 @Controller
 @RequestMapping("/ui/subject")
 public class SubjectPageController {
@@ -51,7 +49,7 @@ public class SubjectPageController {
             try {
                 teacherService.findTeacherById(dto.getIdTeacher());
             } catch (com.patterson.pruebatecnica.business.exceptions.TeacherNotFoundException e) {
-                binding.rejectValue("idTeacher", "teacher.notFound", "El ID de profesor no existe.");
+                binding.rejectValue("idTeacher", "teacher.notFound", "El ID del profesor no existe.");
             }
         }
 
@@ -72,7 +70,7 @@ public class SubjectPageController {
             try {
                 teacherService.findTeacherById(dto.getIdTeacher());
             } catch (com.patterson.pruebatecnica.business.exceptions.TeacherNotFoundException e) {
-                binding.rejectValue("idTeacher", "teacher.notFound", "El ID de profesor no existe.");
+                binding.rejectValue("idTeacher", "teacher.notFound", "El ID del profesor no existe.");
             }
         }
 

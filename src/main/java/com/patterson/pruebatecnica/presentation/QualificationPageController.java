@@ -12,8 +12,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import java.util.List;
-
 @Controller
 @RequestMapping("/ui/qualification")
 public class QualificationPageController {
@@ -80,7 +78,7 @@ public class QualificationPageController {
                          org.springframework.validation.BindingResult binding, Model model,
                          RedirectAttributes ra) throws QualificationNotFoundException {
 
-        if (dto.getIdStudent() != null) {
+        if (dto.getIdStudent()!=null) {
             try {
                 studentService.findStudentById(dto.getIdStudent());
             } catch (StudentNotFoundException e) {
@@ -88,7 +86,7 @@ public class QualificationPageController {
             }
         }
 
-        if (dto.getIdSubject() != null) {
+        if (dto.getIdSubject()!=null) {
             try {
                 subjectService.findSubjectById(dto.getIdSubject());
             } catch (SubjectNotFoundException e) {

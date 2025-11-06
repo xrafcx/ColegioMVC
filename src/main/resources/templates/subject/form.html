@@ -19,11 +19,15 @@
         <input type="hidden" th:field="*{id}"/>
         <div>
             <label for="name">Nombre</label>
-            <input id="name" type="text" th:field="*{name}" required>
+            <input id="name" type="text" th:field="*{name}" required
+                   pattern=".*\S.*" title="Este campo es obligatorio.">
+            <small class="error" th:if="${#fields.hasErrors('name')}"
+                   th:errors="*{name}">Error</small>
         </div>
         <div>
-            <label for="idTeacher">ID Profesor </label>
-            <input id="idTeacher" type="text" th:field="*{idTeacher}">
+            <label for="idTeacher">ID Profesor</label>
+            <input id="idTeacher" type="text" th:field="*{idTeacher}" required
+                   pattern=".*\S.*" title="Este campo es obligatorio.">
             <small class="error" th:if="${#fields.hasErrors('idTeacher')}"
                    th:errors="*{idTeacher}">Error</small>
         </div>
