@@ -45,8 +45,7 @@ public class QualificationPageController {
     }
 
     @PostMapping
-    public String create(@ModelAttribute("qualification") QualificationDTO dto, org.springframework.validation.BindingResult binding,
-                         Model model, RedirectAttributes ra) {
+    public String create(@ModelAttribute("qualification") QualificationDTO dto, org.springframework.validation.BindingResult binding, RedirectAttributes ra) {
 
         if (dto.getIdStudent() != null) {
             try {
@@ -74,9 +73,7 @@ public class QualificationPageController {
     }
 
     @PostMapping("/{id}")
-    public String update(@PathVariable Integer id, @ModelAttribute("qualification") QualificationDTO dto,
-                         org.springframework.validation.BindingResult binding, Model model,
-                         RedirectAttributes ra) throws QualificationNotFoundException {
+    public String update(@PathVariable Integer id, @ModelAttribute("qualification") QualificationDTO dto, org.springframework.validation.BindingResult binding, RedirectAttributes ra) throws QualificationNotFoundException {
 
         if (dto.getIdStudent()!=null) {
             try {

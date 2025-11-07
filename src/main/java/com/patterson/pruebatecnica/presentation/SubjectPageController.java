@@ -42,13 +42,12 @@ public class SubjectPageController {
     }
 
     @PostMapping
-    public String create(@ModelAttribute("subject") SubjectDTO dto,
-                         org.springframework.validation.BindingResult binding, Model model,
-                         org.springframework.web.servlet.mvc.support.RedirectAttributes ra) {
+    public String create(@ModelAttribute("subject") SubjectDTO dto, org.springframework.validation.BindingResult binding, org.springframework.web.servlet.mvc.support.RedirectAttributes ra) {
+
         if (dto.getIdTeacher() != null) {
             try {
                 teacherService.findTeacherById(dto.getIdTeacher());
-            } catch (com.patterson.pruebatecnica.business.exceptions.TeacherNotFoundException e) {
+            } catch (TeacherNotFoundException e) {
                 binding.rejectValue("idTeacher", "teacher.notFound", "El ID del profesor no existe.");
             }
         }
@@ -63,13 +62,12 @@ public class SubjectPageController {
     }
 
     @PostMapping("/{id}")
-    public String update(@PathVariable Integer id,
-                         @ModelAttribute("subject") SubjectDTO dto, org.springframework.validation.BindingResult binding,
-                         Model model, org.springframework.web.servlet.mvc.support.RedirectAttributes ra) throws SubjectNotFoundException {
+    public String update(@PathVariable Integer id, @ModelAttribute("subject") SubjectDTO dto, org.springframework.validation.BindingResult binding, org.springframework.web.servlet.mvc.support.RedirectAttributes ra) throws SubjectNotFoundException {
+
         if (dto.getIdTeacher() != null) {
             try {
                 teacherService.findTeacherById(dto.getIdTeacher());
-            } catch (com.patterson.pruebatecnica.business.exceptions.TeacherNotFoundException e) {
+            } catch (TeacherNotFoundException e) {
                 binding.rejectValue("idTeacher", "teacher.notFound", "El ID del profesor no existe.");
             }
         }
