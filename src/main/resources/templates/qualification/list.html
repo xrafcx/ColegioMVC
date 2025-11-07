@@ -36,7 +36,7 @@
             <td>
                 <div class="row-actions">
                     <a class="btn small" th:href="@{|/ui/qualification/${q.id}/edit|}">Editar</a>
-                    <form th:action="@{|/ui/qualification/${q.id}/delete|}" method="post" style="display:inline" onsubmit="return confirm('¿Eliminar esta calificación?')">
+                    <form th:action="@{|/ui/qualification/${q.id}/delete|}" method="post" style="display:inline">
                         <button class="btn danger small" type="submit">Eliminar</button>
                     </form>
                 </div>
