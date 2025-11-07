@@ -37,7 +37,7 @@ correspondientes.
 - **Data**:
 - **Presentation**: 
 
-### Guía de Usuario
+## Guía de Usuario
 
 Una vez se arranca el programa, el usuario deberá introducir en su navegador http://localhost:8080/ para poder
 ver la página principal, donde se mostrará el siguiente panel.
