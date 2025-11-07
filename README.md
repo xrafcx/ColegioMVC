@@ -66,13 +66,13 @@ consultas de los 2 últimos apartados. Para las consultas de los profesores, sal
 introduzca lo siguiente:
 
 <p align="center">
-  <img src="assets/consultaProfe.png" alt="Consulta del profesor" width="65%">
+  <img src="assets/consultaProfe.png" alt="Consulta del profesor" width="50%">
 </p>
 
 Mientras que para los alumnos, podrán consultar la siguiente información sobre sus calificaciones:
 
 <p align="center">
-  <img src="assets/consultaAlumno.png" alt="Consulta del alumno" width="65%">
+  <img src="assets/consultaAlumno.png" alt="Consulta del alumno" width="50%">
 </p>
 
 ## Tecnologías Utilizadas
