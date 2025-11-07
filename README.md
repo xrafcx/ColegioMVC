@@ -25,7 +25,7 @@ El proyecto ha sido desarrollado en Java (usando SpringBoot) y tiene incluido va
 #### UML
 
 <p align="center">
-  <img src="assets/UML.drawio.png" alt="Consulta del alumno" width="65%">
+  <img src="assets/UML.drawio.png" alt="Consulta del alumno" width="40%">
 </p>
 
 ### Arquitectura
