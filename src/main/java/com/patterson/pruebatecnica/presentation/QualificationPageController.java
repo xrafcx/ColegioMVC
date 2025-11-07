@@ -51,7 +51,7 @@ public class QualificationPageController {
             try {
                 studentService.findStudentById(dto.getIdStudent());
             } catch (StudentNotFoundException e) {
-                binding.rejectValue("idStudent", "student.notFound", "El ID de alumno no existe.");
+                binding.rejectValue("idStudent", "student.notFound", "El ID del alumno no existe.");
             }
         }
 
@@ -59,7 +59,7 @@ public class QualificationPageController {
             try {
                 subjectService.findSubjectById(dto.getIdSubject());
             } catch (SubjectNotFoundException e) {
-                binding.rejectValue("idSubject", "subject.notFound", "El ID de asignatura no existe.");
+                binding.rejectValue("idSubject", "subject.notFound", "El ID de la asignatura no existe.");
             }
         }
 
@@ -79,7 +79,7 @@ public class QualificationPageController {
             try {
                 studentService.findStudentById(dto.getIdStudent());
             } catch (StudentNotFoundException e) {
-                binding.rejectValue("idStudent", "student.notFound", "El ID de alumno no existe.");
+                binding.rejectValue("idStudent", "student.notFound", "El ID del alumno no existe.");
             }
         }
 
@@ -87,7 +87,7 @@ public class QualificationPageController {
             try {
                 subjectService.findSubjectById(dto.getIdSubject());
             } catch (SubjectNotFoundException e) {
-                binding.rejectValue("idSubject", "subject.notFound", "El ID de asignatura no existe.");
+                binding.rejectValue("idSubject", "subject.notFound", "El ID de la asignatura no existe.");
             }
         }
 
