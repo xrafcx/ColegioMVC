@@ -38,3 +38,10 @@ Se ha utilizado la arquitectura de 3 capas.
 correspondientes.
 - **Data**:
 - **Presentation**: 
+
+
+
+| Columna A | Columna B | Columna C |
+|-----------|:---------:|----------:|
+| texto     | centrado  |     1234  |
+| más       | datos     |       56  |

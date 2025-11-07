@@ -40,8 +40,7 @@ public class StudentController {
                     )
             ),
             responses = {
-                    @ApiResponse(responseCode = "201", description = "Creado",
-                            content = @Content(array = @ArraySchema(schema = @Schema(implementation = StudentDTO.class)))),
+                    @ApiResponse(responseCode = "201", description = "Creado", content = @Content(array = @ArraySchema(schema = @Schema(implementation = StudentDTO.class)))),
                     @ApiResponse(responseCode = "400", description = "Datos inválidos")
             }
     )
@@ -55,8 +54,7 @@ public class StudentController {
             summary = "Buscar estudiante por ID",
             parameters = @Parameter(name = "id", description = "ID del estudiante", example = "1"),
             responses = {
-                    @ApiResponse(responseCode = "200", description = "Encontrado",
-                            content = @Content(schema = @Schema(implementation = StudentDTO.class))),
+                    @ApiResponse(responseCode = "200", description = "Encontrado", content = @Content(schema = @Schema(implementation = StudentDTO.class))),
                     @ApiResponse(responseCode = "404", description = "No encontrado")
             }
     )
