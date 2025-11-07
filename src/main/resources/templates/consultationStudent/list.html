@@ -15,17 +15,14 @@
     </div>
     <form class="form" method="get" th:action="@{/ui/consultationStudent}">
         <div>
-            <label for="idStudent">ID del Alumno</label>
-            <input id="idStudent" name="idStudent" type="text"
-                   th:value="${idStudent}" inputmode="numeric" pattern="\d+" required
-                   title="Introducir ID">
+            <label for="idStudent">Introduzca el ID del Alumno que desea consultar</label>
+            <input id="idStudent" name="idStudent" type="text" th:value="${idStudent}" inputmode="numeric" required>
         </div>
         <div class="actions">
             <button class="btn" type="submit">Buscar calificaciones</button>
         </div>
         <small class="error" th:if="${error}" th:text="${error}">Error</small>
     </form>
-    <p th:if="${!hasSearched}">Introduce el ID del alumno.</p>
     <table class="table" th:if="${#lists.isEmpty(results) == false}">
         <thead>
         <tr>

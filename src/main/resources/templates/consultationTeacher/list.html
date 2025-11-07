@@ -16,9 +16,7 @@
     <form class="form" method="get" th:action="@{/ui/consultationTeacher}">
         <div>
             <label for="idTeacher">ID del Profesor</label>
-            <input id="idTeacher" name="idTeacher" type="text"
-                   th:value="${idTeacher}" inputmode="numeric" pattern="\d+" required
-                   title="Introducir ID">
+            <input id="idTeacher" name="idTeacher" type="text" th:value="${idTeacher}" inputmode="numeric" required>
         </div>
         <div class="actions">
             <button class="btn" type="submit">Buscar calificaciones</button>

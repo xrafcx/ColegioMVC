@@ -19,8 +19,7 @@
         <input type="hidden" th:field="*{id}"/>
         <div>
             <label for="firstName">Nombre</label>
-            <input id="firstName" type="text" th:field="*{firstName}"
-                   required pattern=".*\S.*" title="Este campo es obligatorio.">
+            <input id="firstName" type="text" th:field="*{firstName}" required pattern=".*\S.*" title="Este campo es obligatorio.">
             <small class="error" th:if="${#fields.hasErrors('firstName')}"
                    th:errors="*{firstName}">Error</small>
         </div>
@@ -33,14 +32,14 @@
         </div>
         <div>
             <label for="email">Email</label>
-            <input id="email" type="email" th:field="*{email}"
-                   required autocomplete="email">
+            <input id="email" type="email" th:field="*{email}" required autocomplete="email">
             <small class="error" th:if="${#fields.hasErrors('email')}"
                    th:errors="*{email}">Error</small>
         </div>
         <div class="actions">
             <button class="btn" type="submit"
-                    th:text="${teacher.id} != null ? 'Guardar cambios' : 'Guardar'">Guardar</button>
+                    th:text="${teacher.id} != null ? 'Guardar cambios' : 'Guardar'">Guardar
+            </button>
         </div>
     </form>
 </div>
