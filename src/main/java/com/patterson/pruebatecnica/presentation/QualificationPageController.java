@@ -50,7 +50,7 @@ public class QualificationPageController {
 
         if (dto.getIdStudent() != null) {
             try {
-                studentService.findStudentById(dto.getIdStudent()); // existe?
+                studentService.findStudentById(dto.getIdStudent());
             } catch (StudentNotFoundException e) {
                 binding.rejectValue("idStudent", "student.notFound", "El ID de alumno no existe.");
             }
@@ -58,7 +58,7 @@ public class QualificationPageController {
 
         if (dto.getIdSubject() != null) {
             try {
-                subjectService.findSubjectById(dto.getIdSubject()); // existe?
+                subjectService.findSubjectById(dto.getIdSubject());
             } catch (SubjectNotFoundException e) {
                 binding.rejectValue("idSubject", "subject.notFound", "El ID de asignatura no existe.");
             }

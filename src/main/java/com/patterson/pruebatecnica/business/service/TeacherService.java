@@ -91,7 +91,6 @@ public class TeacherService {
         return out;
     }
 
-
     /**
      * Elimina un profesor a partir del ID.
      * @param id identificador del profesor.

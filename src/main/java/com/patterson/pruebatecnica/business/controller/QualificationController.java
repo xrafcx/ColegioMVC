@@ -6,7 +6,6 @@ import com.patterson.pruebatecnica.business.service.QualificationService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
-
 import io.swagger.v3.oas.annotations.tags.Tag;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -73,7 +72,7 @@ public class QualificationController {
                     content = @Content(array = @ArraySchema(schema = @Schema(implementation = QualificationDTO.class))))
     )
     @GetMapping("/findQualifications")
-    public List<QualificationDTO> findQualifications()  throws QualificationNotFoundException {
+    public List<QualificationDTO> findQualifications() throws QualificationNotFoundException {
         return qualificationService.findAll();
     }
 
@@ -87,7 +86,7 @@ public class QualificationController {
             }
     )
     @GetMapping("/qualifications")
-    public List<QualificationDTO> findQualificationsByStudentId(@RequestParam Integer idStudent) throws QualificationNotFoundException {
+    public List<QualificationDTO> findQualificationsByStudentId(@RequestParam Integer idStudent){
         return qualificationService.findByStudentId(idStudent);
     }
 
