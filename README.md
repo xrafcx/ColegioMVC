@@ -20,17 +20,13 @@ El proyecto ha sido desarrollado en Java (usando SpringBoot) y tiene incluido va
 
 · Un alumno podrá obtener todas las calificaciones de sus asignaturas.
 
-### Guía de Usuario
-
-![UML](assets/consultaProfe.png)
-
-![UML](assets/consultaAlumno.png)
-
 ### Análisis Técnico
 
 #### UML
 
-![UML](assets/UML.drawio.png)
+<p align="center">
+  <img src="assets/UML.drawio.png" alt="Consulta del alumno" width="65%">
+</p>
 
 ### Arquitectura
 
@@ -41,10 +37,20 @@ correspondientes.
 - **Data**:
 - **Presentation**: 
 
-### Tecnologías Utilizadas
+### Guía de Usuario
+
+<p align="center">
+  <img src="assets/consultaProfe.png" alt="Consulta del profesor" width="65%">
+</p>
+
+<p align="center">
+  <img src="assets/consultaAlumno.png" alt="Consulta del alumno" width="65%">
+</p>
+
+## Tecnologías Utilizadas
 
 | Tecnología      |                    Información                    |
-|-----------------|:-------------------------------------------------:|
+|-----------------|:--------------------------------------------------|
 | Java            |                    Versión 21                     |
 | Intellij IDEA   |               Entorno de desarrollo               |
 | Spring Boot     |                   Versión 3.5.6                   |
