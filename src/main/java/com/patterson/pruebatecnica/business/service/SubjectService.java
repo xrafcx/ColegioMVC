@@ -90,15 +90,12 @@ public class SubjectService {
      */
 
     @Transactional
-    public SubjectDTO updateSubject(Integer id, SubjectDTO dto) throws SubjectNotFoundException {
-        Subject entity = subjectRepository.findById(id)
-                .orElseThrow(() -> new SubjectNotFoundException("Subject not found: " + id));
-        entity.setName(dto.getName());
+    public void updateSubject(Integer id, SubjectDTO dto) throws SubjectNotFoundException {
+        Subject subject = subjectRepository.findById(id).orElseThrow(() -> new SubjectNotFoundException("Subject not found: " + id));
+        subject.setName(dto.getName());
         if (dto.getIdTeacher() != null) {
-            teacherRepository.findById(dto.getIdTeacher()).ifPresent(entity::setTeacher);
+            teacherRepository.findById(dto.getIdTeacher()).ifPresent(subject::setTeacher);
         }
-        Subject saved = subjectRepository.save(entity);
-        return new SubjectDTO(saved);
     }
 
     /**

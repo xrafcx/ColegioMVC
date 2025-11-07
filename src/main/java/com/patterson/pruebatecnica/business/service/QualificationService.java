@@ -76,17 +76,13 @@ public class QualificationService {
      */
 
     @Transactional
-    public QualificationDTO updateQualification(Integer id, QualificationDTO dto) throws QualificationNotFoundException {
-        Qualification entity = qualificationRepository.findById(id)
-                .orElseThrow(() -> new QualificationNotFoundException("Qualification not found: " + id));
-
-        entity.setPercentage(dto.getPercentage());
-        entity.setNote(dto.getNote());
-        if (dto.getIdStudent() != null) studentRepository.findById(dto.getIdStudent()).ifPresent(entity::setStudent);
-        if (dto.getIdSubject() != null) subjectRepository.findById(dto.getIdSubject()).ifPresent(entity::setSubject);
-
-        Qualification saved = qualificationRepository.save(entity);
-        return new QualificationDTO(saved);
+    public void updateQualification(Integer id, QualificationDTO dto) throws QualificationNotFoundException {
+        Qualification qualification = qualificationRepository.findById(id).orElseThrow(() -> new QualificationNotFoundException("Qualification not found: " + id));
+        qualification.setPercentage(dto.getPercentage());
+        qualification.setNote(dto.getNote());
+        if (dto.getIdStudent() != null) {
+            studentRepository.findById(dto.getIdStudent()).ifPresent(qualification::setStudent);
+        }
     }
 
     /**

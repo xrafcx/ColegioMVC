@@ -73,22 +73,11 @@ public class TeacherService {
      */
 
     @Transactional
-    public TeacherDTO updateTeacher(Integer id, TeacherDTO dto) throws TeacherNotFoundException {
-        Teacher entity = teacherRepository.findById(id)
-                .orElseThrow(() -> new TeacherNotFoundException("Teacher not found: " + id));
-
-        entity.setFirstName(dto.getFirstName());
-        entity.setLastName(dto.getLastName());
-        entity.setEmail(dto.getEmail());
-
-        Teacher saved = teacherRepository.save(entity);
-
-        TeacherDTO out = new TeacherDTO();
-        out.setId(saved.getId());
-        out.setFirstName(saved.getFirstName());
-        out.setLastName(saved.getLastName());
-        out.setEmail(saved.getEmail());
-        return out;
+    public void updateTeacher(Integer id, TeacherDTO dto) throws TeacherNotFoundException {
+        Teacher teacher = teacherRepository.findById(id).orElseThrow(() -> new TeacherNotFoundException("Teacher not found: " + id));
+        teacher.setFirstName(dto.getFirstName());
+        teacher.setLastName(dto.getLastName());
+        teacher.setEmail(dto.getEmail());
     }
 
     /**
