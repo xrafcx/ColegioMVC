@@ -16,11 +16,13 @@ El proyecto ha sido desarrollado en Java (usando SpringBoot) y tiene incluido va
 
 · Un profesor podrá consultar de cada asignatura que esté a cargo, las calificaciones de sus estudiantes.
 
-![UML](assets/consultaProfe.png)
-
 #### Alumno
 
 · Un alumno podrá obtener todas las calificaciones de sus asignaturas.
+
+### Guía de Usuario
+
+![UML](assets/consultaProfe.png)
 
 ![UML](assets/consultaAlumno.png)
 
@@ -39,9 +41,16 @@ correspondientes.
 - **Data**:
 - **Presentation**: 
 
+### Tecnologías Utilizadas
 
-
-| Columna A | Columna B | Columna C |
-|-----------|:---------:|----------:|
-| texto     | centrado  |     1234  |
-| más       | datos     |       56  |
+| Tecnología      |                    Información                    |
+|-----------------|:-------------------------------------------------:|
+| Java            |                    Versión 21                     |
+| Intellij IDEA   |               Entorno de desarrollo               |
+| Spring Boot     |                   Versión 3.5.6                   |
+| Lombok          | Uso de anotaciones para generar código más limpio |
+| H2              |                   Base de datos                   |
+| JUnit & Mockito |             Realización de los tests              |
+| Github          |   Repositorio del código y gestión de versiones   |
+| Thymeleaf       |           Para la creación de la vista            |
+| Drawio          |                 Creación del UML                  |
