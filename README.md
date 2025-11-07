@@ -39,9 +39,37 @@ correspondientes.
 
 ### Guía de Usuario
 
+Una vez se arranca el programa, el usuario deberá introducir en su navegador http://localhost:8080/ para poder
+ver la página principal, donde se mostrará el siguiente panel.
+
+<p align="center">
+  <img src="assets/panelPrincipal.png" alt="Consulta del profesor" width="65%">
+</p>
+
+En las 4 primeras secciones, tendrá la opción de visualizar la información que haya almacenada de cada clase. Es 
+importante seguir el siguiente orden a la hora de añadir información para poder interactuar correctamente con el 
+programa debido a las relaciones.
+
+1. Añadir profesores.
+2. Añadir alumnos.
+3. Añadir asignaturas.
+4. Añadir calificaciones.
+
+Una vez se haya añadido la información correspondiente, dentro de cada sección dispondrá de las acciones *Editar* y *Eliminar*.
+
+<p align="center">
+  <img src="assets/infoProfes.png" alt="Consulta del profesor" width="65%">
+</p>
+
+Cuando ya se haya añadido información a cada una de las 4 primeras secciones, ya se podrá realizar sin problema las 
+consultas de los 2 últimos apartados. Para las consultas de los profesores, saldrá según el id del profesor que se 
+introduzca lo siguiente:
+
 <p align="center">
   <img src="assets/consultaProfe.png" alt="Consulta del profesor" width="65%">
 </p>
+
+Mientras que para los alumnos, podrán consultar la siguiente información sobre sus calificaciones:
 
 <p align="center">
   <img src="assets/consultaAlumno.png" alt="Consulta del alumno" width="65%">
