@@ -33,9 +33,9 @@ El proyecto ha sido desarrollado en Java (usando SpringBoot) y tiene incluido va
 Se ha utilizado la arquitectura de 3 capas.
 
 - **Business**: Contiene los servicios de las diferentes clases y gestiona las peticiones que mandan los controladores 
-correspondientes.
-- **Data**:
-- **Presentation**: 
+correspondientes (además de las excepciones personalizadas).
+- **Data**: Están las entidades JPA y los repositorios de cada clase para poder realizar las consultas a la BBDD.
+- **Presentation**: Se encarga de recibir las peticiones del usuario y controla las plantillas de thymleaf que se mostraran.
 
 ## Guía de Usuario
 
@@ -55,7 +55,8 @@ programa debido a las relaciones.
 3. Añadir asignaturas.
 4. Añadir calificaciones.
 
-Una vez se haya añadido la información correspondiente, dentro de cada sección dispondrá de las acciones *Editar* y *Eliminar*.
+Una vez se haya añadido la información correspondiente, dentro de cada sección dispondrá de las acciones *Editar* y
+*Eliminar*.
 
 <p align="center">
   <img src="assets/infoProfes.png" alt="Consulta del profesor" width="65%">
